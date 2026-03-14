@@ -24,7 +24,7 @@ public class EnumSearchWindow : AdvancedDropdown
         for (int i = 0; i < _displayNames.Length; i++)
         {
             // 添加菜单项，并将索引作为 id
-            root.AddChild(new AdvancedDropdownItem(_displayNames[i]) { id = i });
+            root.AddChild(new GenericAdvancedDropdownItem<int>(_displayNames[i]){data = i});
         }
 
         return root;
@@ -33,7 +33,7 @@ public class EnumSearchWindow : AdvancedDropdown
     // 当用户选中某一项时触发
     protected override void ItemSelected(AdvancedDropdownItem item)
     {
-        _prop.enumValueIndex = item.id;
+        _prop.enumValueIndex = ((GenericAdvancedDropdownItem<int>)item).data;
         _prop.serializedObject.ApplyModifiedProperties();
     }
 }
