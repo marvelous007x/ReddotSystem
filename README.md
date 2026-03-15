@@ -7,3 +7,5 @@
 单纯红点，不带数值。具体红点显示自行在void Reddot.ShowReddot(bool active)中实现。
 
 绑定红点类型id使用AutoReddot组件，每个GameObject单独自行处理使用ManualReddot组件。
+
+ReddotEvent 用于 Manual Reddot，ReddotType 用于 AutoReddot。
