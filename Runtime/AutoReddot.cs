@@ -69,10 +69,15 @@ namespace Reddot
 
         protected override void OnDestroy()
         {
-            foreach (var reddot in listens)
+            var manager = ReddotManager.Ins;
+            if (manager != null)
             {
-                ReddotManager.Ins.UnregisterOnChange(reddot, MarkDirty);
+                foreach (var reddot in listens)
+                {
+                    manager.UnregisterOnChange(reddot, MarkDirty);
+                }
             }
+            
             base.OnDestroy();
         }
     }

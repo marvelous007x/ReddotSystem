@@ -46,11 +46,17 @@ namespace Reddot
 
         protected override void OnDestroy()
         {
-            if (events != null)
+            if (events != null )
             {
-                foreach (var ev in events)
-                    ReddotManager.Ins.UnregisterOnChange(ev, MarkDirty);
+                var manager = ReddotManager.Ins;
+                if(manager != null)
+                {
+                    foreach (var ev in events)
+                        manager.UnregisterOnChange(ev, MarkDirty);
+                }
+                events = null;               
             }
+            check = null;
             base.OnDestroy();
         }
     }

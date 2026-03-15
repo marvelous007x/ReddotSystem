@@ -45,7 +45,10 @@ namespace Reddot
         protected virtual void OnDestroy()
         {
             if (dirty)
-                ReddotManager.Ins?.RemoveDirtyComps(this);
+            {
+                var manager = ReddotManager.Ins;
+                if(manager != null) manager.RemoveDirtyComps(this);
+            }
         }
     }
 }
