@@ -24,6 +24,7 @@ namespace Reddot
             if (pActive == active) return;
             this.active = active;
             //执行红点显示逻辑
+            Debug.LogWarning($"GameObject: {gameObject.name} has reddot {active}");
         }
 
         internal abstract void CheckReddot();
@@ -44,7 +45,7 @@ namespace Reddot
         protected virtual void OnDestroy()
         {
             if (dirty)
-                ReddotManager.Ins.RemoveDirtyComps(this);
+                ReddotManager.Ins?.RemoveDirtyComps(this);
         }
     }
 }

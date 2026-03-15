@@ -23,7 +23,7 @@ namespace Reddot
         {
             get
             {
-                if (_ins == null)
+                if (_ins == null && Application.isPlaying)
                 {
                     var go = new GameObject();
                     DontDestroyOnLoad(go);
